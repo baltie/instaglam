@@ -1,49 +1,66 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // `load`, `deviceready`, `offline`, and `online`.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of `this` is the event. In order to call the `receivedEvent`
-    // function, we must explicity call `app.receivedEvent(...);`
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+"use strict";
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+window.App = (function () {
+    var me = this;
+    
+    function App() {        
+        $("#cameraButton").on("click", $.proxy(this.onCameraButtonClick, this));
 
-        console.log('Received Event: ' + id);
+        if (typeof cordova !== "undefined" && cordova !== null) {
+            $(document).on("deviceready", $.proxy(this.onDeviceReady, this));
+        } else {
+            this.onDeviceReady();
+        }
     }
-};
+
+    App.prototype.onDeviceReady = function () {
+        console.log("Device ready!");
+
+        $(window).on("resize", $.proxy(this.onResize, this));
+        this.onResize();
+    };
+
+    App.prototype.onResize = function () {
+        console.log("resize");
+        this.$imageCanvas = $("#imageCanvas");
+        this.imageCanvas = this.$imageCanvas.get(0);
+        this.$glamCanvas = $("#glamCanvas");
+        this.glamCanvas = this.$glamCanvas.get(0);
+
+        this.imageCanvas.style.width = Math.floor($(window).width()) + "px";
+        this.imageCanvas.style.height = Math.floor($(window).height()) + "px";
+
+        console.log($(window).width() + "," + $(window).height());
+        console.log(this.$imageCanvas.width() + "," + this.$imageCanvas.height());
+    };
+
+    App.prototype.onCameraButtonClick = function () {
+        console.log("Camera button click");
+        navigator.camera.getPicture($.proxy(this.onPhotoSuccess, this), this.onPhotoFail, {
+            quality: 90,
+            destinationType: navigator.camera.DestinationType.FILE_URI
+        });
+    };
+
+    App.prototype.onPhotoSuccess = function (imageUri) {
+        var that = this;
+        console.log("Uri: " + imageUri);
+
+        this.imageObject = new window.Image();
+        this.imageObject.onload = function () {
+            console.log("Image size: " + this.width + "," + this.height);
+            that.imageCanvas.width = this.width;
+            that.imageCanvas.height = this.height;
+            
+            var ctx = that.imageCanvas.getContext("2d");
+            ctx.drawImage(this, 0, 0, this.width, this.height);
+        };
+        this.imageObject.src = imageUri;
+    };
+
+    App.prototype.onPhotoFail = function(message) {
+        console.error("Photo failed: " + message);
+    };
+    
+    return App;
+})();
