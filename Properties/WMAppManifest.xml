@@ -4,8 +4,8 @@
   <Languages xmlns="">
     <Language code="en-US" />
   </Languages>
-  <App xmlns="" ProductID="{13b7ec4f-d4cf-422b-90ef-cd9c48af66ab}" Title="instaglam" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="instaglam author" BitsPerPixel="32" Description="Apache Cordova for Windows Phone" Publisher="instaglam" PublisherID="{db093ed5-53b1-45f7-af72-751e8f36ab80}">
-    <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
+  <App xmlns="" ProductID="{13b7ec4f-d4cf-422b-90ef-cd9c48af66ab}" Title="instaglam" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Dan Lewi Harkestad" BitsPerPixel="32" Description="Instant glam for Windows Phone" Publisher="Dan Lewi Harkestad" PublisherID="{db093ed5-53b1-45f7-af72-751e8f36ab80}">
+    <IconPath IsRelative="true" IsResource="false">www\img\catinhat.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_IDENTITY_DEVICE" />
       <Capability Name="ID_CAP_IDENTITY_USER" />
@@ -29,18 +29,19 @@
     <Tokens>
       <PrimaryToken TokenID="instaglamToken" TaskName="_default">
         <TemplateFlip>
-          <SmallImageURI IsResource="false" IsRelative="true">Background.png</SmallImageURI>
+          <SmallImageURI IsResource="false" IsRelative="true">www\img\catinhat.png</SmallImageURI>
           <Count>0</Count>
-          <BackgroundImageURI IsResource="false" IsRelative="true">Background.png</BackgroundImageURI>
+          <BackgroundImageURI IsResource="false" IsRelative="true">www\img\catinhat.png</BackgroundImageURI>
           <Title>instaglam</Title>
-          <BackContent></BackContent>
-          <BackBackgroundImageURI></BackBackgroundImageURI>
-          <BackTitle></BackTitle>
-          <LargeBackgroundImageURI></LargeBackgroundImageURI>
-          <LargeBackContent></LargeBackContent>
-          <LargeBackBackgroundImageURI></LargeBackBackgroundImageURI>
-          <DeviceLockImageURI></DeviceLockImageURI>
-          <HasLarge>false</HasLarge>
+          <BackContent>
+          </BackContent>
+          <BackBackgroundImageURI>
+          </BackBackgroundImageURI>
+          <BackTitle>
+          </BackTitle>
+          <DeviceLockImageURI>
+          </DeviceLockImageURI>
+          <HasLarge>False</HasLarge>
         </TemplateFlip>
       </PrimaryToken>
     </Tokens>

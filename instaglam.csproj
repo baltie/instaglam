@@ -206,12 +206,24 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SplashScreenImage.png" />
     <Content Include="config.xml" />
     <Content Include="resources\notification-beep.wav" />
     <Content Include="www\cordova-2.5.0.js" />
-    <Content Include="www\img\logo.png" />
+    <Content Include="www\css\bootstrap-responsive.css" />
+    <Content Include="www\css\bootstrap-responsive.min.css" />
+    <Content Include="www\css\bootstrap.css" />
+    <Content Include="www\css\bootstrap.min.css" />
+    <Content Include="www\img\catinhat.jpg" />
+    <Content Include="www\img\catinhat.png" />
+    <Content Include="www\img\glyphicons-halflings-white.png" />
+    <Content Include="www\img\glyphicons-halflings.png" />
+    <Content Include="www\img\tophat.png" />
+    <Content Include="www\js\bootstrap.js" />
+    <Content Include="www\js\bootstrap.min.js" />
     <Content Include="www\js\index.js" />
     <Content Include="www\js\jquery-1.9.1.js" />
+    <None Include="README.md" />
     <None Include="VERSION" />
     <Resource Include="cordovalib\Images\appbar.back.rest.png" />
     <Resource Include="cordovalib\Images\appbar.close.rest.png" />
@@ -237,10 +249,7 @@
     <Content Include="ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Background.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SplashScreenImage.jpg" />
+    <Content Include="SplashScreenImage2.jpg" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

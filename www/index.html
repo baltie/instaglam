@@ -6,29 +6,17 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <!--<meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1" />-->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Instaglam</title>
-        <script>
-            (function () {
-                if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
-                    var msViewportStyle = document.createElement("style");
-                    msViewportStyle.appendChild(
-                        document.createTextNode("@-ms-viewport{width:auto!important}")
-                    );
-                    document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
-                }
-            })();
-        </script>
     </head>
     <body>
-        <canvas id="imageCanvas">
-            Canvas unsupported!
-        </canvas>
-            <!--<canvas id="glamCanvas"></canvas>-->
-<!--            <div id="buttons">
-                <button id="cameraButton">Take picture</button>
-                <button id="glamButton">Add glam</button>
-            </div>-->
+        <img id="image" alt="" src="img/catinhat.png" style="visibility: hidden" />
+        <div id="buttons" class="btn-group">
+            <button id="cameraButton" class="btn"><i class="icon-eye-open"></i> Take picture</button>
+            <button id="glamButton" class="btn"><i class="icon-star"></i> Add glam</button>
+        </div>
+        <img id="tophatImage" alt="" src="img/tophat.png" style="visibility: hidden"/>
         <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
         <script type="text/javascript" src="cordova-2.5.0.js"></script>
         <script type="text/javascript" src="js/index.js"></script>

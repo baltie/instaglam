@@ -8,12 +8,30 @@
 }
 
 /* IE10 Mobile viewport fix */
-@-ms-viewport{
+/*@-ms-viewport{
     width: device-width;
+}*/
+
+@media screen and (orientation: portrait) {
+    @-ms-viewport {
+        width: 320px;
+        user-zoom: fixed;
+        max-zoom: 1;
+        min-zoom: 1;
+    }
 }
 
-body {
-    /*background-color:#E4E4E4;
+@media screen and (orientation: landscape) {
+    @-ms-viewport {
+        width: 480px;
+        user-zoom: fixed;
+        max-zoom: 1;
+        min-zoom: 1;
+    }
+}
+
+/*body {
+    background-color:#E4E4E4;
     background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
@@ -24,8 +42,7 @@ body {
         color-stop(0, #A7A7A7),
         color-stop(0.51, #E4E4E4)
     );
-    background-attachment:fixed;*/
-    background-color: red;
+    background-attachment:fixed;
     overflow: hidden;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
@@ -34,25 +51,14 @@ body {
     text-transform:uppercase;
     width:100%;
     height: 100%;
-}
+}*/
 
 #image {
-    position: relative;
-    background: blue;
-}
-
-#imageCanvas {
-    display: block;
-    background: green;
-    margin: 0;
-    z-index: 0;
-}
-
-#glamCanvas {
     position: absolute;
-    left: 0;
     top: 0;
-    z-index: 1;
+    left: 0;
+    background: blue;
+    z-index: 0;
 }
 
 #buttons {
